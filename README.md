@@ -1,69 +1,28 @@
-#include <iostream>
-#include <string>
-#include <vector>
-#include <optional>
-#include <variant>
+# 🚀 NamaProyekCPlusPlus
+> A sleek, modern C++ project — clean code, fast performance, and joyful developer experience.
 
-class Battery {
-public:
-    int percentage;
-    bool isCharging;
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/<USERNAME>/<REPO>/actions) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE) [![C++ Standard](https://img.shields.io/badge/C%2B%2B-17-orange.svg)](#)
 
-    Battery(int p, bool c) : percentage(p), isCharging(c) {}
+---
 
-    void show() const {
-        std::cout << "🔋 Battery: " << percentage << "% "
-                  << (isCharging ? "(Charging)" : "(Not Charging)") << "\n";
-    }
-};
+## 📌 Ringkasan
+`NamaProyekCPlusPlus` adalah template / contoh proyek C++ modern yang menonjolkan:
+- Struktur proyek rapi (CMake-ready)
+- Contoh penggunaan library header-only kecil
+- Unit test (GoogleTest / Catch2) demo
+- Panduan build untuk Linux / macOS / Windows (WSL)
 
-class PerformanceMode {
-public:
-    enum Mode { POWER_SAVING, BALANCED, HIGH_PERFORMANCE };
+Tujuan: **mempercepat pembuatan project C++ yang bisa langsung dipush ke GitHub** dengan dokumentasi yang bagus.
 
-    static std::string toString(Mode m) {
-        switch (m) {
-            case POWER_SAVING: return "Power Saving";
-            case BALANCED: return "Balanced";
-            case HIGH_PERFORMANCE: return "High Performance";
-            default: return "Unknown";
-        }
-    }
-};
+---
 
-class RealmeDevice {
-private:
-    std::string model;
-    Battery battery;
-    PerformanceMode::Mode mode;
+## ✨ Fitur
+- Modern C++ (C++17)
+- Build dengan CMake atau `g++` langsung
+- Contoh kode bersih, modular
+- Contoh CLI sederhana
+- Template README untuk menampilkan penggunaan & badge
 
-public:
-    RealmeDevice(std::string m, Battery b) 
-        : model(std::move(m)), battery(b), mode(PerformanceMode::BALANCED) {}
+---
 
-    void setMode(PerformanceMode::Mode newMode) {
-        mode = newMode;
-    }
-
-    void showInfo() const {
-        std::cout << "\n📱 Realme Device Information\n";
-        std::cout << "------------------------------\n";
-        std::cout << "Model        : " << model << "\n";
-        std::cout << "Mode         : " << PerformanceMode::toString(mode) << "\n";
-        battery.show();
-        std::cout << "------------------------------\n";
-    }
-};
-
-int main() {
-    RealmeDevice device("Realme GT Neo", Battery(87, false));
-
-    device.showInfo();
-
-    std::cout << "\n⚡ Switching to High Performance Mode...\n";
-    device.setMode(PerformanceMode::HIGH_PERFORMANCE);
-
-    device.showInfo();
-
-    return 0;
-}
+## 📁 Struktur Direktori (saran)
